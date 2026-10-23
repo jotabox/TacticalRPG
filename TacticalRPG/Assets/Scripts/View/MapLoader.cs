@@ -20,6 +20,9 @@ namespace TacticalRPG.View
             Map = Load();
             Debug.Log($"Mapa Carregado : {Map.Width} x {Map.Height}."
                 + $"Célula (0,0): {Map.GetCell(Vector2Int.zero).BaseTerrain}");
+            Debug.Log($"Vizinhos de (0,0): {Map.GetNeighbors(new Vector2Int(0, 0)).Count} (esperado 2)");
+            Debug.Log($"Vizinhos de (5,5): {Map.GetNeighbors(new Vector2Int(5, 5)).Count} (esperado 4)");
+            Debug.Log($"Distância (0,0)-(3,4): {BattleMap.Distance(new Vector2Int(0, 0), new Vector2Int(3, 4))} (esperado 7)");
         }
 
         private BattleMap Load()

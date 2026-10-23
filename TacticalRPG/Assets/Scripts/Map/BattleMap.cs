@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace TacticalRPG.Map
@@ -33,6 +35,30 @@ namespace TacticalRPG.Map
         public Cell GetCell(Vector2Int position)
         {
             return _cells[position.x, position.y];
+        }
+
+        private static readonly Vector2Int[] Directions =
+        {
+            Vector2Int.up, Vector2Int.down, Vector2Int.left, Vector2Int.right
+        };
+
+        public List<Vector2Int> GetNeighbors(Vector2Int position)
+        {
+            var neighbors = new List<Vector2Int>(4);
+            foreach (Vector2Int direction in Directions)
+            {
+                Vector2Int candidate = position + direction;
+                if (IsInside(candidate))
+                {
+                    neighbors.Add(candidate);
+                }
+            }
+            return neighbors;
+        }
+
+        public static int Distance(Vector2Int a, Vector2Int b)
+        {
+            return Mathf.Abs(a.x - b.x) + Mathf.Abs(a.y - b.y);
         }
 
     }
