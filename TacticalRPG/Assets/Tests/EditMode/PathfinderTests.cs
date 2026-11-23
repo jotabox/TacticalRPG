@@ -3,7 +3,6 @@ using System;
 using TacticalRPG.Map;
 using TTacticalRPG.Map;
 using UnityEngine;
-using UnityEngine;
 
 namespace TacticalRPG.Tests
 {

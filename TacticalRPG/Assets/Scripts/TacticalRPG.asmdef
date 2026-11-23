@@ -1,3 +1,8 @@
 {
-	"name": "TacticalRPG"
+	"name": "TacticalRPG",
+	"rootNamespace": "TacticalRPG",
+    "references":
+	[
+        "Unity.InputSystem"
+	]
 }
